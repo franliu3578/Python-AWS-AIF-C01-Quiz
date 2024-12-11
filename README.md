@@ -97,13 +97,6 @@ streamlit run app.py
 
 ---
 
-## ❤️ Contribute & Collaborate
--We value your feedback! Here’s how you can collaborate:
-
-- 📝 Suggest new quiz topics or question formats.
-- 🛠️ Contribute additional Python or AWS-related content.
-- 🌟 Enhance the UI/UX for better user engagement.
-
 ## ⚠️ Disclaimer
 - This app is for educational purposes only and should not be used for commercial distribution or sharing beyond personal use. Content referenced from TibaMe or AWS materials remains the property of its rightful owner.
 - 本專案的下載和使用必須經過授權許可。請聯絡 劉晏瑜 <franliu3578@gmail.com> 獲取授權。
