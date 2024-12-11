@@ -46,11 +46,11 @@ Built with Streamlit, this app offers a clean, user-friendly interface to practi
 │   │   ├── python_tabime_20.json              # Python Tabime (20)
 │   │   ├── python_tabime_all_31.json          # Combined Python Tabime (31)
 │   └── pdf/                  # 📄 PDF reference materials
-│       ├── AIF_C01_part1_英87題.pdf           # AWS AIF-C01 Part 1 (English)
-│       ├── AIF_C01_part2_簡中43題.pdf         # AWS AIF-C01 Part 2 (Simplified Chinese)
-│       ├── AIF_C01_part3_簡中65題.pdf         # AWS AIF-C01 Part 3 (Simplified Chinese)
-│       ├── python_part1_11題.pdf             # Python Part 1 (11 questions)
-│       ├── python_part2_20題.pdf             # Python Part 2 (20 questions)
+│       ├── AIF_C01_part1_英87題.pdf           # AWS AIF-C01 Part 1 (87)
+│       ├── AIF_C01_part2_簡中43題.pdf         # AWS AIF-C01 Part 2 (43)
+│       ├── AIF_C01_part3_簡中65題.pdf         # AWS AIF-C01 Part 3 (65)
+│       ├── python_part1_11題.pdf             # Python Part 1 (11)
+│       ├── python_part2_20題.pdf             # Python Part 2 (20)
 ├── .venv/                    # ⚙️ Virtual environment
 ├── requirements.txt          # 📜 Python package dependencies
 ├── pyproject.toml            # 🛠️ Poetry configuration file
