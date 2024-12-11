@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+# 🌟 Interactive Quiz App for Python Basics & AWS AIF-C01 🚀
+=======
 # 🌟 Interactive Quiz App for Python Basics & AWS AIF-C01 🐍🚀
+>>>>>>> 03a9aff (初次提交專案文件)
 
 Welcome to the **Interactive Quiz Application**! Whether you're:
 - 🐍 Strengthen your Python basics with beginner-friendly quizzes.
@@ -111,4 +115,8 @@ streamlit run app.py
 
 ---
 
+<<<<<<< HEAD
 - 💡 Ready to learn and grow? Dive into the app and supercharge your Python and AWS skills today! 🚀✨
+=======
+- 💡 Ready to learn and grow? Dive into the app and supercharge your Python and AWS skills today! 🚀✨
+>>>>>>> 03a9aff (初次提交專案文件)

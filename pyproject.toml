@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "python-aws-quiz"
+version = "0.1.0"
+description = ""
+authors = ["劉晏瑜 <franliu3578@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.11,<4.0"
+streamlit = "^1.40.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

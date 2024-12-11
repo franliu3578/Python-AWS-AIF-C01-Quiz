@@ -1,0 +1,394 @@
+[
+    {
+        "question": "右側程式，請問程式的輸出結果為何？",
+        "code": "s = 1\n\ndef func(a):\n    s = 2\n    a = 4\n\nfunc(s)\nprint(s)\ns = 3\nprint(s)\n",
+        "options": [
+            "A. 12",
+            "B. 13",
+            "C. 22",
+            "D. 44"
+        ],
+        "answer": "B. 13",
+        "keywords": ["程式碼分析", "全域變數", "區域變數"],
+        "explanation": "\n1. 初始化變數 `s` 為 1。\n2. 呼叫函式 `func` 並傳入 `s`（值為 1），函式內部的區域變數 `s` 不影響全域變數。\n3. 第一次輸出全域變數 `s` 的值為 1。\n4. 修改全域變數 `s` 為 3。\n5. 第二次輸出全域變數 `s` 的值為 3。"
+    },   
+    {
+        "question": "有一程式如右所示，求程式的輸出值為何？",
+        "code": "count = 12\nif count > 10:\n    count = 11\nelif count < 12:\n    count = 10\n    if count % 10 == 0:\n        count = 13\n    else:\n        count = 14\nif count == 11:\n    count = 10\nelif count == 13:\n    count = 14\n    if count % 10 == 4:\n        count = 13\nelif count > 13:\n    count = 12\n\nprint(count)",
+        "options": [
+            "A. 13",
+            "B. 12",
+            "C. 11", 
+            "D. 10"
+        ],
+        "answer": "D. 10",
+        "keywords": ["Python", "if-else", "條件判斷"],
+        "explanation": "\n1. 初始化變數 `count` 為 12。\n2. 第一層 `if` 條件檢查：\n   -> `count > 10` 成立，將 `count` 設為 11。\n3. 第二層條件檢查：\n   -> `if count == 11` 成立，將 `count` 設為 10。\n4. 其餘條件不成立，跳過。\n5. 最終輸出變數 `count` 的值為 10。"
+    },
+    {
+        "question": "當右側程式執行時，請問輸出的陣列元素分別是多少？",
+        "code": "arr = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]\nfor i in range(0, 10):\n    arr[(i + i) % 7] = i\nprint(arr)",
+        "options": [
+            "A. [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]",
+            "B. [7, 4, 8, 5, 9, 6, 3, 0, 0, 0]",
+            "C. [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]",
+            "D. 發生錯誤，無法輸出"
+        ],
+        "answer": "B. [7, 4, 8, 5, 9, 6, 3, 0, 0, 0]",
+        "keywords": ["陣列操作", "索引計算", "餘數運算"],
+        "explanation": "\n1. 初始化陣列 `arr` 為 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]。\n2. 迴圈執行範圍為 `range(0, 10)`，因此 `i` 的值為 0 到 9。\n3. 在每次迴圈中，計算 `(i + i) % 7`，作為陣列的索引，並將當前的 `i` 賦值給該索引位置。\n4. 運算結果為：\n   - 當 i = 0，索引為 (0+0) % 7 = 0，arr[0] = 0。\n   - 當 i = 1，索引為 (1+1) % 7 = 2，arr[2] = 1。\n   - 當 i = 2，索引為 (2+2) % 7 = 4，arr[4] = 2。\n   - 依此類推，最後一次迴圈 i = 9，索引為 (9+9) % 7 = 4，覆蓋先前的值。\n5. 最終輸出的陣列為 [7, 4, 8, 5, 9, 6, 3, 0, 0, 0]。"
+    },
+    {
+        "question": "有一函式 func 如右所示，求 func(7,4) 返回的值為何？",
+        "code": "def func(a, b):\n    s = 0\n    if a > b:\n        t = a\n        a = b\n        b = t\n    for i in range(0, a):\n        for j in range(i, b):\n            s += j\n    return s\n",
+        "options": [
+            "A. 80",
+            "B. 130",
+            "C. 發生錯誤，無法執行。",
+            "D. 以上皆非"
+        ],
+        "answer": "A. 80",
+        "keywords": ["Python", "函式", "巢狀迴圈", "參數交換"],
+        "explanation": "\n1. 定義函式 `func(a, b)`，並初始化變數 `s` 為 0。\n2. 如果 `a > b`，交換 `a` 和 `b` 的值，確保 `a <= b`。\n3. 使用巢狀迴圈計算：\n    - 外層迴圈範圍為 `0` 到 `a`。\n    - 內層迴圈範圍為當前 `i` 到 `b`。\n    - 在內層迴圈中，將 `j` 累加至 `s`。\n4. 當呼叫 `func(7,4)` 時，執行結果為 `s = 80`。\n5. 最終返回 `s` 的值為 `80`。"
+    },  
+    {
+        "question": "有一題題函式 R 如右所示，如果以 R(3,17,0) 執行，則會印出什麼結果？",
+        "code": "def R(x, y, s):\n    t = int((x + y) / 2)\n    s = s + t\n    if x < y:\n        if 5 >= t:\n            R(t, y, s)\n        else:\n            R(x, y - 5, s)\n    else:\n        print(s)",
+        "options": [
+            "A. 24",
+            "B. 27",
+            "C. 31",
+            "D. 34"
+        ],
+        "answer": "C. 31",
+        "keywords": ["遞迴", "條件判斷", "數值計算"],
+        "explanation": "\n1. 初始化參數 `x=3`, `y=17`, `s=0`，進入函式。\n2. 第一次計算 `t=(3+17)/2=10`，`s=s+t=0+10=10`，進入條件。\n3. 因 `x < y` 且 `5 >= t` 不成立，執行 `R(x, y-5, s)`，即 `R(3, 12, 10)`。\n4. 第二次計算 `t=(3+12)/2=7`，`s=s+t=10+7=17`，再次進入條件。\n5. 因 `x < y` 且 `5 >= t` 不成立，執行 `R(x, y-5, s)`，即 `R(3, 7, 17)`。\n6. 第三次計算 `t=(3+7)/2=5`，`s=s+t=17+5=22`，進入條件。\n7. 因 `x < y` 且 `5 >= t` 成立，執行 `R(t, y, s)`，即 `R(5, 7, 22)`。\n8. 最後一次計算 `t=(5+7)/2=6`，`s=s+t=22+6=31`，進入條件。\n9. 因 `x >= y`，結束遞迴並輸出 `s=31`。"
+    },
+    {
+        "question": "請問下列程式碼執行後的輸出為何？",
+        "code": "a = 100\n\ndef fn():\n    global a\n    a = 1\n\nprint(a)\nfn()\nprint(a)",
+        "options": [
+            "A. 100 100",
+            "B. 1 1",
+            "C. 1 100",
+            "D. 100 1"
+        ],
+        "answer": "D. 100 1",
+        "keywords": ["Python", "global", "變數作用域"],
+        "explanation": "\n1. 初始化變數 `a = 100`，這是一個全域變數，值為 100。\n2. 第一個 `print(a)`：直接輸出全域變數 `a` 的值，為 100。\n3. 呼叫函式 `fn()`：\n   - 在函式內聲明 `global a`，這使得函式內的 `a` 直接指向全域變數 `a`。\n   - 將全域變數 `a` 的值設為 1。\n4. 第二個 `print(a)`：此時，全域變數 `a` 已被函式 `fn()` 修改為 1，輸出值為 1。\n5. 總結輸出結果依次為：100 和 1。"
+    },
+    {
+        "question": "請問下列程式碼執行後的輸出為何？",
+        "code": "print(sum(range(100)))",
+        "options": [
+            "A. 100",
+            "B. 0",
+            "C. 4950",
+            "D. 5050"
+        ],
+        "answer": "C. 4950",
+        "keywords": ["Python", "sum", "range", "數值運算"],
+        "explanation": "\n小技巧：使用算術級數公式 `(首項 + 末項) * 項數 / 2` 快速計算連續整數的和。\n\n1. `range(100)` 生成一個從 0 到 99 的數字序列（包含 0，但不包含 100）。\n2. 使用 `sum()` 函數計算這些數字的總和。\n3. 這些數字的和可以寫成：0 + 1 + 2 + ... + 99。\n4. 利用算術級數求和公式 `(首項 + 末項) * 項數 / 2`，可得出總和為 `(0 + 99) * 100 / 2 = 4950`。\n5. 因此，程式碼執行後的輸出為 4950。"
+    },
+    {
+        "question": "請問下列程式碼執行後的輸出為何？",
+        "code": "import numpy as np\n\nnp1 = np.array([6, 5, 4, 3, 2, 1])\n\nnp2 = np1.reshape(3, 2)\n\nprint(np2.sum(axis=1))",
+        "options": [
+            "A. 6",
+            "B. [15 6]",
+            "C. [11 7 3]",
+            "D. 21"
+        ],
+        "answer": "C. [11 7 3]",
+        "keywords": ["Python", "NumPy", "reshape", "sum", "陣列運算"],
+        "explanation": "\n1. 使用 `numpy` 來建立一個陣列 `np1`，其元素為 `[6, 5, 4, 3, 2, 1]`。\n2. 使用 `reshape(3, 2)` 將原本 1 維的 `np1` 陣列轉換為 3 行 2 列的 2 維陣列 `np2`，結果為：\n   ```\n   [[6, 5],\n    [4, 3],\n    [2, 1]]\n   ```\n3. 使用 `np2.sum(axis=1)` 來計算每一行的元素和：\n   - 第一行的和：`6 + 5 = 11`\n   - 第二行的和：`4 + 3 = 7`\n   - 第三行的和：`2 + 1 = 3`\n4. 最終輸出為 `[11 7 3]`。"
+    },
+    {
+        "question": "請問下列程式碼執行後的輸出為何？",
+        "code": "import numpy as np\n\nnp1 = np.array([6, 5, 4, 3, 2, 1])\n\nprint(np1[np1 % 3 == 1])",
+        "options": [
+            "A. [4 1]",
+            "B. [6 4 2]",
+            "C. [4]",
+            "D. [5 2]"
+        ],
+        "answer": "A. [4 1]",
+        "keywords": ["Python", "NumPy", "條件篩選", "模數運算"],
+        "explanation": "\n1. 使用 `numpy` 建立一個陣列 `np1`，其內容為 `[6, 5, 4, 3, 2, 1]`。\n2. 條件篩選 `np1[np1 % 3 == 1]` 的含義：\n   - 對陣列中的每個元素計算 `元素 % 3`，結果為 `[0, 2, 1, 0, 2, 1]`。\n   - 篩選出餘數等於 1 的元素，對應的元素為 `4` 和 `1`。\n3. 最終輸出為 `[4 1]`。"
+    },
+    {
+        "question": "請問下列程式碼執行後的輸出為何？",
+        "code": "def a(v1):\n    def b(v2):\n        return v1 ** v2\n    return b\n\na1 = a(5)\nprint(a1(3))",
+        "options": [
+            "A. 125",
+            "B. 25",
+            "C. 9",
+            "D. 15"
+        ],
+        "answer": "A. 125",
+        "keywords": ["Python", "函式", "巢狀函式", "閉包"],
+        "explanation": "\n1. 定義函式 `a(v1)`，其內部定義了另一個函式 `b(v2)`，該函式返回 `v1 ** v2`。\n2. 函式 `a` 返回的是內部函式 `b`，這意味著 `a1` 將成為函式 `b`，並且捕獲了外部變數 `v1 = 5`。\n3. 呼叫 `a1(3)` 時，相當於呼叫 `b(3)`，計算 `5 ** 3`。\n4. `5 ** 3` 等於 `125`。\n5. 最終輸出為 `125`。"
+    },
+    {
+        "question": "QC 假設有兩個條件所運算出的布林值 A 與 B，請回答以下哪一項條件運算式正確？(select two or all)\n1. 若想要同時滿足 A、B 兩個條件時，應該使用 。\n2. 若想要滿足 A 或 B 的條件時，應該使用。\n3. 若想要滿足 A，但不滿足 B 的條件時，應該使用。\n4. 若想要不滿足 A，也不滿足 B 的條件時，應該使用。",
+        "code": "if ____Q1____:\n    # Q1: 同時滿足 A、B 兩個條件時要執行的內容\n    ...\n\nif ____Q2____:\n    # Q2: 滿足 A、B 其中一個條件時要執行的內容\n    ...\n\nif ____Q3____:\n    # Q3: 滿足 A 但不滿足 B 時要執行的內容\n    ...\n\nif ____Q4____:\n    # Q4: 不滿足 A、也不滿足 B 時要執行的內容\n    ...",
+        "options": [
+            "1. A and B",
+            "2. A or B",
+            "3. A and not B",
+            "4. not A and not B"
+        ],
+        "answer": [
+            "1. A and B",
+            "2. A or B",
+            "3. A and not B",
+            "4. not A and not B"
+        ],
+        "keywords": ["布林運算", "邏輯運算", "條件運算"],
+        "explanation": "問題涉及布林值 A 與 B 的邏輯運算，包括 AND、OR、NOT 等基本邏輯運算的應用。每個選項對應的答案顯示了如何組合運算子來達成特定條件。範例程式碼顯示如何使用 Python 撰寫這些條件運算的邏輯。"
+    },
+    {
+        "question": "計算以下的 Python 數學運算式結果為何？",
+        "code": "(3 * (1 + 2) ** 2 - 2 ** 2 * 3)",
+        "options": [
+            "A. 3",
+            "B. 13",
+            "C. 15",
+            "D. 69"
+        ],
+        "answer": "C. 15",
+        "keywords": ["數學運算", "運算順序", "Python"],
+        "explanation": "\n1. 根據 Python 運算順序，先處理括號 `(1 + 2)`，結果為 3。\n2. 再計算 `3 ** 2`，結果為 9。\n3. 計算 `2 ** 2`，結果為 4。\n4. 計算 `3 * 9`，結果為 27。\n5. 計算 `4 * 3`，結果為 12。\n6. 最後計算 `27 - 12`，結果為 15。\n7. 選項應更正為 C. 15。"
+    },
+    {
+        "question": "請按先後順序從頭至尾排列造六類運算的正確順序：\n加法和減法 (+, -)、乘法和除法 (*, /)、正數 (+)、負數 (-) 與反位元 (not)、括弧、指數 (**)、且 (And)。",
+        "options": [
+            "A. 加法和減法 -> 乘法和除法 -> 正數、負數與反位元 -> 括弧 -> 指數 -> 且",
+            "B. 括弧 -> 指數 -> 正數、負數與反位元 -> 乘法和除法 -> 加法和減法 -> 且",
+            "C. 指數 -> 乘法和除法 -> 正數、負數與反位元 -> 括弧 -> 且 -> 加法和減法",
+            "D. 乘法和除法 -> 括弧 -> 正數、負數與反位元 -> 指數 -> 且 -> 加法和減法"
+        ],
+        "answer": "B. 括弧 -> 指數 -> 正數、負數與反位元 -> 乘法和除法 -> 加法和減法 -> 且",
+        "keywords": ["運算順序", "Python", "邏輯運算"],
+        "explanation": "\n1. 括弧具有最高優先權，任何運算都會先處理括弧內的內容。\n2. 指數運算次於括弧，計算冪次方 (**)。\n3. 正數 (+)、負數 (-) 與反位元 (not) 屬於一元運算，優先於二元運算。\n4. 乘法 (*) 和除法 (/) 優先於加法 (+) 和減法 (-)。\n5. 加法與減法的優先權相同，但次於乘法與除法。\n6. 邏輯運算 '且' (And) 具有最低優先權。"
+    },
+    {
+        "question": "請問以下程式碼的執行結果為何？",
+        "code": "value1 = 24\nvalue2 = 7\nvalue3 = 17.9\nanswer = (value1 % value2 * 100) // 2.0 ** 3.0 - value2\nprint(answer)",
+        "options": [
+            "A. 30.5",
+            "B. 457",
+            "C. 30.0",
+            "D. 答案為無法辨識"
+        ],
+        "answer": "C. 30.0",
+        "keywords": ["Python", "數學運算", "優先順序"],
+        "explanation": "\n1. 計算 `value1 % value2`，即 `24 % 7 = 3`。\n2. 將結果乘以 100，得出 `3 * 100 = 300`。\n3. 然後執行除法 `//` 和指數運算 `2.0 ** 3.0 = 8.0`，即 `300 // 8.0`，結果為 `30.0`。\n4. 最後減去 `value2 = 7`，答案為 `30.0`。"
+    },    
+    {
+        "question": "請問以下程式碼的執行結果為何？",
+        "code": "alph = \"abcdefghijklmnopqrstuvwxyz\"\nprint(alph[15:3:-3])",
+        "options": [
+            "A. zwtnqkheb",
+            "B. pmjq",
+            "C. ejim",
+            "D. olif"
+        ],
+        "answer": "B. pmjq",
+        "keywords": ["Python", "字串切片", "索引"],
+        "explanation": "\n1. 定義 `alph` 為字串 \"abcdefghijklmnopqrstuvwxyz\"。\n2. 使用切片語法 `[15::3]` 表示從索引 15 (即字母 'p') 開始，每隔三個字符取一個字符，直到字串結束。\n3. 所以結果為：'p', 'm', 'j', 'q'，即 `pmjq`。"
+    },
+    {
+        "question": "你正在開發一個比較數字的Python程式，下列何者的值是True？ (select two)",
+        "options": [
+            "A. 0 or 5",
+            "B. bool(0)",
+            "C. None is None",
+            "D. -5 < 0 < 5"
+        ],
+        "answer": ["C. None is None", "D. -5 < 0 < 5"],
+        "keywords": ["比較運算", "布林值", "Python"],
+        "explanation": "\n1. `0 or 5` 的結果是 `5`，因為 `or` 運算符會返回第一個為真的值。雖然 `5` 代表布林值為 `True`，但這裡的重點是運算結果本身並不是布林值，因此不算作 `True` 的布林判斷。\n2. `bool(0)` 返回 `False`，因為在 Python 中，`0` 表示 `False`。\n3. `None is None` 返回 `True`，因為 `is` 用來比較兩者是否為同一物件，`None` 和 `None` 確實是相同的。\n4. `-5 < 0 < 5` 返回 `True`，因為這是一個鏈式比較，表示 `-5 < 0` 且 `0 < 5`，這兩個條件都成立。"
+    },
+    {
+        "question": "高中老師希望製作一份報表來顯示這次考試班上所有學生的平均分數。報表必須去除平均分數的小數部分，你應該使用哪兩個程式碼片段?每個正確的答案都提供了一個完整的解決方案。(select two)",
+        "options": [
+            "A. 平均分數 = float(全部總分 // 全班人數)",
+            "B. 平均分數 = int(全部總分 / 全班人數)",
+            "C. 平均分數 = float(全部總分 ** 全班人數)",
+            "D. 平均分數 = 全班總分 // 全班人數"
+        ],
+        "answer": ["B. 平均分數 = int(全部總分 / 全班人數)","D. 平均分數 = 全班總分 // 全班人數"],
+        "keywords": ["類型轉換", "Python", "除法運算"],
+        "explanation": "\n1. 運算 `全部總分 / 全班人數` 返回浮點數，使用 `int()` 可以去除小數部分，得到整數平均分數。\n2. 運算 `全部總分 // 全班人數` 是整數除法，直接返回去除小數部分的整數結果。\n3. 選項 A 和 C 都不符合需求：\n   - 選項 A 使用了 `float()`，無法去除小數部分。\n   - 選項 C 中的 `全部總分 ** 全班人數` 是冪運算，不適用於計算平均分數。"
+    },
+    {
+        "question": "你正在編寫Python程式用於計算一個數學公式。公式內容為 b 等於 a 加上 5，然後再平方，其中 a 是輸入的值，b 是結果。如何完成第 02 行的程式碼？",
+        "code": "01 a = eval(input(\"Enter a number for the equation:\"))\n02 b = ",
+        "options": [
+            "A. b = (a + 5)**2",
+            "B. b = a + 5**2",
+            "C. b = a + 5 * 2",
+            "D. b = a + (5**2)"
+        ],
+        "answer": "A. b = (a + 5)**2",
+        "keywords": ["數學公式", "Python", "平方運算"],
+        "explanation": "\n1. 公式要求先將 a 加上 5，然後計算其平方。\n2. 選項 A 正確地使用括號 `(a + 5)` 將加法操作優先處理，再進行平方運算，符合題目需求。\n3. 選項 B 和 D 計算錯誤：\n   - 選項 B 將 5 的平方計算後再加上 a，不符合題目要求。\n   - 選項 D 將 5 的平方直接加到 a 上，也不符合公式需求。\n4. 選項 C 是簡單的加法和乘法，未進行平方運算，因此不正確。"
+    },
+    {
+        "question": "你正在開發一個補習班的Python函式來計算折扣，補習班希望鼓勵小朋友和老年人報名，只要是小朋友和老年人報名相關課程就會獲得10%折扣。目前已經有以下程式碼。\n\n請你在第 03 行加入一段程式碼，來完成這個程式。你會使用以下哪一段程式碼？",
+        "code": "01 def get_discount(kid, senior):\n02     discount = 0.1\n03     \n04          discount = 0\n05     return discount",
+        "options": [
+            "A. if not (kid or senior):",
+            "B. if (not kid) or senior:",
+            "C. if not (kid and senior):",
+            "D. if (not kid) and senior:"
+        ],
+        "answer": "A. if not (kid or senior):",
+        "keywords": ["條件判斷", "Python", "邏輯運算"],
+        "explanation": "\n1. 題目要求只要小朋友或老年人報名就會獲得折扣，對應條件應為 `if not (kid or senior)`。\n2. 選項 A 的邏輯正確：`if not (kid or senior): return 0.1` 表示當小朋友或老年人報名時給予折扣。\n3. 選項 B 的 `(not kid) or senior` 將邏輯顛倒，與需求不符。\n4. 選項 C 的 `if not (kid and senior):` 要求小朋友和老年人同時報名才符合條件，邏輯不符。\n5. 選項 D 的 `(not kid) and senior` 表示僅當不是小朋友且是老年人時才符合條件，邏輯不符。"
+    },
+    {
+        "question": "你正在設計一個電子商務程式，它可以接受自使用者輸入，並以逗號分隔的格式輸出資料。你可以編寫以下程式碼來接受輸入：\n輸出必須符合以下要求：\n- 字串必須括在雙引號內。\n- 數字不得用引號或其他字元括起來。\n- 每個產品必須用逗號隔開。\n\n請問你會使用哪些程式碼片段？(Select two plus one)",
+        "code": "product = input(\"Enter product name: \")\nqty = input(\"Input quantity: \")\n\n# 請選擇符合條件的程式碼片段",
+        "options": [
+            "A. print('\"{0}\",{1}'.format(product, qty))",
+            "B. print('\"' + product + '\",' + qty)",
+            "C. print('\"%s\",%s' % (product, qty))",
+            "D. print('{0},{1}'.format(product, qty))",
+            "E. print(product + ',' + qty)"
+        ],
+        "answer": ["A. print('\"{0}\",{1}'.format(product, qty))", "B. print('\"' + product + '\",' + qty)", "C. print('\"%s\",%s' % (product, qty))"],
+        "keywords": ["Python", "格式化輸出", "逗號分隔"],
+        "explanation": "\n1. 選項 A 使用 `format()` 函式，將字串 `product` 正確地包括在雙引號內，並用逗號隔開數字 `qty`，完全符合需求。\n2. 選項 B 使用字串拼接方式，`'\"' + product + '\"' + ',' + qty`，手動將字串加上雙引號，並用逗號隔開數字，語法正確且符合需求。\n3. 選項 C 使用 `\"%s\",%s` 格式化，手動加上雙引號並用逗號隔開，輸出符合要求，且是 Python 中的傳統格式化方法之一。\n4. 選項 D 使用 `'{0},{1}'.format(product, qty)`，雖然格式化正確，但未將字串加上雙引號，因此不符合題目條件。\n5. 選項 E 使用簡單的連接操作，`product + ',' + qty`，未將字串加上雙引號，也不符合題目條件。"
+    },
+    {
+        "question": "以下程式碼的執行結果會是如何？\n\n```python\nx = 0\nwhile x < 4:\n    if x % 4 == 0:\n        print(\"party\")\n    elif x - 2 < 0:\n        print(\"cake\")\n    elif x / 3 == 0:\n        print(\"greeting\")\n    else:\n        print(\"birthday\")\n    x = x + 1\n```\n",
+        "options": [
+            "A. party\n greeting\n birthday\n cake",
+            "B. party\n cake\n birthday\n greeting",
+            "C. birthday\n party\n greeting\n cake",
+            "D. birthday\n greeting\n party\ncake"
+        ],
+        "answer": "B. party\n cake\n birthday\n greeting",
+        "keywords": ["Python", "條件判斷", "迴圈", "輸出結果"],
+        "explanation": "這段程式碼的執行步驟如下：\n\n1. 初始化 `x = 0`，進入 `while x < 4` 的迴圈。\n2. **第一輪 (x = 0)**：\n   - 條件 `x % 4 == 0` 成立，輸出 `party`。\n   - 更新 `x = 1`。\n3. **第二輪 (x = 1)**：\n   - 條件 `x - 2 < 0` 成立，輸出 `cake`。\n   - 更新 `x = 2`。\n4. **第三輪 (x = 2)**：\n   - 條件 `else` 成立，輸出 `birthday`。\n   - 更新 `x = 3`。\n5. **第四輪 (x = 3)**：\n   - 條件 `else` 成立，輸出 `birthday`。\n   - 更新 `x = 4`，跳出迴圈。\n\n輸出結果為：`party\ncake\nbirthday\nbirthday`。"
+    },
+    {
+        "question": "出版社想要檢查出版物中特定字母的數量，你需要設計一個函式以符合要求。你要如何完成這段程式碼？\n\n```python\ndef count_letter(letter, letter_list):\n    count = 0\n    for ____:\n        if letter in word:\n            count += 1\n    return count\n\nletter_list = []\n# letter_list 是由檔案中取得，程式碼中並未顯示。\nletter = input(\"你想要計算哪個字母的數量?\")\nletter_count = count_letter(letter, letter_list)\nprint(\"一共: \", letter_count, \"個字母: \" + letter)\n```\n\n請問你會如何填入 `for ____:`?",
+        "options": [
+            "A. letter_list in word",
+            "B. word in letter_list",
+            "C. word in letter",
+            "D. word is letter_list"
+        ],
+        "answer": "B. word in letter_list",
+        "keywords": ["Python", "迴圈", "字母計算", "函式設計"],
+        "explanation": "\n1. `letter_list` 是包含多個單字的清單，必須逐一取出其中的每個單字進行檢查。\n2. 在 `for word in letter_list` 中，`word` 代表 `letter_list` 中的一個單字。\n3. 條件 `if letter in word:` 用於檢查指定的 `letter` 是否出現在該單字中。\n4. 選項 A、C 和 D 的迴圈語法不符合 Python 規範或題目需求：\n   - 選項 A：`letter_list in word` 錯誤，應為 `word in letter_list`。\n   - 選項 C：`word in letter` 錯誤，`letter` 是單個字母，無法迭代。\n   - 選項 D：`word is letter_list` 使用錯誤，`is` 是比較物件是否相同的運算符，無法用於迴圈。"
+    },
+    {
+        "question": "在以下的程式碼：執行程式後輸出的結果會是什麼？",
+        "code": "import datetime\n\nd = datetime.datetime(2018, 5, 16)\nprint('{:%B-%d-%Y}'.format(d))\n\nnum = 1234567.89\nprint('{:,}'.format(num))",
+        "options": [
+            "A. 05-16-18\n1234567.89",
+            "B. 05-16-2018\n1,234,567.8900",
+            "C. 05-16-18\n1,234,567.89",
+            "D. May-16-18\n1,234,567.89"
+        ],
+        "answer": "D. May-16-18\n1,234,567.89",
+        "keywords": ["Python", "datetime", "格式化輸出", "數字格式"],
+        "explanation": "1. 在 `'{:%B-%d-%Y}'.format(d)` 中：\n   - `%B` 會輸出完整的月份名稱，例如 `May`。\n   - `%d` 會輸出兩位數的日期，例如 `16`。\n   - `%Y` 是四位數年份，例如 `2018`。\n   - 因此，日期格式化後為 `May-16-18`。\n\n2. 在 `'{:,}'.format(num)` 中：\n   - `:,` 會為數字加入千分位逗號。\n   - 輸入數字 `1234567.89`，格式化後會輸出 `1,234,567.89`。\n\n3. 選項解析：\n   - **A**：日期格式不正確，缺少月份名稱。\n   - **B**：小數部分多了額外的 `00`，不符合程式輸出。\n   - **C**：日期格式不正確，缺少完整的月份名稱。\n   - **D**：正確，符合題目中的輸出結果。"
+    },
+    {
+        "question": "你設計了一個 Python 應用程式，需要將資料寫到文字檔中。如果檔案不存在，則必須新建它。如果檔案已有內容，將文字加到最後。你應該使用哪個程式碼？",
+        "options": [
+            "A. open('file_data', 'a')",
+            "B. open('file_data', 'w')",
+            "C. open('file_data', 'r+')",
+            "D. open('file_data', 'r')"
+        ],
+        "answer": "A. open('file_data', 'a')",
+        "keywords": ["Python", "檔案操作", "寫入模式", "附加內容"],
+        "explanation": "1. 選擇檔案操作模式時需根據需求：\n   - **'a' (附加模式)**：如果檔案存在，會將新內容加到檔案最後；如果檔案不存在，會自動建立檔案，適合本題需求。\n   - **'w' (寫入模式)**：會覆蓋檔案內容，不適合題目要求。\n   - **'r+' (讀寫模式)**：檔案必須存在才能使用，無法新建檔案，因此不符合需求。\n   - **'r' (讀取模式)**：僅能讀取檔案，不能寫入或新建檔案，完全不符合需求。\n2. 因此正確答案為：`A. open('file_data', 'a')`。"
+    },
+    {
+        "question": "開發 Python 應用程式時，如何在程式碼中添加註釋？",
+        "options": [
+            "A. 將註釋放在最後一行程式碼之後，用空行隔開。",
+            "B. 將註釋放在第一行程式碼之前，用空白行隔開。",
+            "C. 將註釋放在任何一行的 ` 符號之後。",
+            "D. 將註釋放在任何一行的 # 符號之後。"
+        ],
+        "answer": "D. 將註釋放在任何一行的 # 符號之後。",
+        "keywords": ["Python", "註釋", "程式碼規範"],
+        "explanation": "1. 在 Python 中，註釋是用 `#` 符號表示的。\n   - `#` 後的文字會被 Python 解釋器忽略，主要用於說明程式碼的作用或備註。\n2. Python 支援將註釋放在程式碼的任何地方：行首或行尾。\n   - 例如：\n     ```python\n     # 這是一個單行註釋\n     print(\"Hello, world!\")  # 這是行尾註釋\n     ```\n\n3. 選項解析：\n   - **A**：將註釋放在最後一行程式碼之後並用空行隔開，這種方式可以，但不是 Python 註釋的主要特性，也不完全正確。\n   - **B**：將註釋放在程式碼之前並用空白行隔開，雖然可以這樣做，但並非唯一或常用方式。\n   - **C**：敘述有誤，少了明確提到 `#` 符號，無法表示正確的 Python 註釋語法。\n   - **D**：正確，Python 支援在程式碼的任何一行使用 `#` 符號後添加註釋，這是 Python 註釋的標準語法。\n\n4. 結論：選項 D 是正確答案，因為它準確描述了 Python 中添加註釋的方式。"
+    },
+    {
+        "question": "在程式中要使用 datetime 模組中 datetime 函式，再設定 dt 為替代名稱，在導入時應該使用哪個程式碼片段？",
+        "options": [
+            "A. from datetime as dt",
+            "B. from datetime import datetime as dt",
+            "C. import datetime from datetime as dt",
+            "D. import datetime.datetime as dt"
+        ],
+        "answer": "B. from datetime import datetime as dt",
+        "keywords": ["Python", "datetime", "模組導入", "別名"],
+        "explanation": "1. 在 Python 中，`datetime` 是標準模組，包含多種與日期和時間相關的函式和類別。\n2. 若要導入 `datetime` 模組中的 `datetime` 類並使用別名 `dt`，需要使用語法 `from datetime import datetime as dt`。\n3. 選項解析：\n   - **A**：語法錯誤，`from ... as` 無法直接使用。\n   - **B**：正確，導入 `datetime` 類並將其別名為 `dt`，符合需求。\n   - **C**：語法錯誤，`import ... from ...` 是無效的結構。\n   - **D**：語法錯誤，`datetime.datetime` 需要正確導入後才能使用別名。\n4. 結論：選項 B 是正確答案，符合題目要求的導入方式。"
+    },
+    {
+        "question": "你設計程式碼用來生成的隨機整數，最小值為 11，最大值為 20。你應該使用哪兩種函式？(select two)",
+        "options": [
+            "A. random.randrange(11, 21, 1)",
+            "B. random.randrange(11, 20, 1)",
+            "C. random.randint(11, 20)",
+            "D. random.randint(11, 21)"
+        ],
+        "answer": ["A. random.randrange(11, 21, 1)", "C. random.randint(11, 20)"],
+        "keywords": ["Python", "隨機數生成", "randrange", "randint"],
+        "explanation": "1. `random.randrange(start, stop[, step])`：\n   - `start` 是起始值，包含在範圍內。\n   - `stop` 是終止值，不包含在範圍內。\n   - `step` 是遞增的步長。\n   - 因此，`random.randrange(11, 21, 1)` 生成的隨機整數範圍是 [11, 20]，符合需求。\n\n2. `random.randint(a, b)`：\n   - 生成的隨機整數範圍是 [a, b]，包含兩端。\n   - 因此，`random.randint(11, 20)` 生成的範圍是 [11, 20]，符合需求。\n\n3. 選項解析：\n   - **A**：正確，`randrange(11, 21, 1)` 生成範圍符合要求。\n   - **B**：錯誤，`randrange(11, 20, 1)` 的最大值為 19，無法生成 20。\n   - **C**：正確，`randint(11, 20)` 生成範圍符合要求。\n   - **D**：錯誤，`randint(11, 21)` 會包含 21，範圍超出要求。\n\n4. 結論：選項 A 和 C 是正確的函式。"
+    },
+    {
+        "question": "你設計程式碼用來生成的隨機浮點數，最小值是 0.0，最大值是 1.0。你應該使用哪個函法？",
+        "options": [
+            "A. random.random()",
+            "B. random.randrange(0.0, 1.0)",
+            "C. random.randrange()",
+            "D. random.randint(0, 1)"
+        ],
+        "answer": "A. random.random()",
+        "keywords": ["Python", "隨機數生成", "random", "浮點數"],
+        "explanation": "1. `random.random()` 是用於生成 [0.0, 1.0) 範圍內的隨機浮點數，符合題目需求。\n2. 選項解析：\n   - **A**：正確，`random.random()` 是標準方法，用於生成 [0.0, 1.0) 的隨機浮點數。\n   - **B**：錯誤，`random.randrange()` 只用於生成整數，無法接受浮點數參數。\n   - **C**：錯誤，`random.randrange()` 缺少必要參數且只適用於整數。\n   - **D**：錯誤，`random.randint(0, 1)` 生成的結果是整數 0 或 1，不能生成浮點數。\n\n3. 結論：選項 A 是正確答案，符合生成隨機浮點數的需求。"
+    },
+    {
+        "question": "你正在設計一個處理數字的函式，該函式具有以下要求：\n- 將浮點數傳遞到函式中。\n- 函式必須取得浮點數的絕對值。\n- 函式必須無條件進位到整數。\n\n你應該使用哪兩個數學函式？(select two)",
+        "options": [
+            "A. math.fabs(x)",
+            "B. math.floor(x)",
+            "C. math.fmod(x)",
+            "D. math.ceil(x)",
+            "E. math.frexp(x)"
+        ],
+        "answer": ["A. math.fabs(x)", "D. math.ceil(x)"],
+        "keywords": ["Python", "math", "絕對值", "無條件進位"],
+        "explanation": "1. `math.fabs(x)` 用於計算浮點數的絕對值，符合題目要求。\n2. `math.ceil(x)` 用於無條件進位到大於或等於 `x` 的最小整數，符合題目要求。\n\n3. 選項解析：\n   - **A**：正確，`math.fabs(x)` 計算浮點數絕對值。\n   - **B**：錯誤，`math.floor(x)` 是無條件捨去，與無條件進位的需求不符。\n   - **C**：錯誤，`math.fmod(x)` 是計算浮點數的餘數，與題目需求無關。\n   - **D**：正確，`math.ceil(x)` 用於無條件進位。\n   - **E**：錯誤，`math.frexp(x)` 是將數字分解為尾數和指數，與題目需求無關。\n\n4. 結論：選項 A 和 D 符合題目需求，應用於計算浮點數的絕對值與無條件進位。"
+    },
+    {
+        "question": "在設計一段程式時，要讓使用者提供一個數值。即使使用者輸入了小數，該值也必須轉換為整數來進行計算。請寫出這一段程式碼。",
+        "input_field": "Enter your code here",
+        "max_lines": 8,
+        "answer": "# 讓使用者輸入數值\nuser_input = input(\"請輸入一個數值: \")\n\n# 將使用者輸入的數值轉換為整數\ntry:\n    integer_value = int(float(user_input))\n    print(\"轉換為整數後的值是:\", integer_value)\nexcept ValueError:\n    print(\"輸入無效，請輸入一個數值。\")",
+        "options": [], 
+        "keywords": ["Python", "數值轉換", "例外處理", "整數轉換"],
+        "explanation": "1. 程式首先使用 `input()` 函式接收使用者輸入的數值。\n2. 使用 `float()` 處理輸入的小數，並用 `int()` 將其轉換為整數。\n3. 在轉換過程中加入例外處理 `try-except`，如果輸入的值無法轉換（如非數字），則顯示錯誤訊息，提示重新輸入。\n\n範例正確答案：\n```python\n# 讓使用者輸入數值\nuser_input = input(\"請輸入一個數值: \")\n\n# 將使用者輸入的數值轉換為整數\ntry:\n    integer_value = int(float(user_input))\n    print(\"轉換為整數後的值是:\", integer_value)\nexcept ValueError:\n    print(\"輸入無效，請輸入一個數值。\")\n```\n此程式完整處理了輸入、轉換與錯誤情況，符合需求。"
+    },
+    {
+        "question": "你在設計一個Python程式遊戲讓參加的人猜測1到100之間的數字，最多有三次機會。程式碼如下所示，程式應該讓使用者猜三次，如果猜出正確就應該立即停止程式。請你補充完成代碼第05、13及14行的程式碼。(如需內縮，需表現出來)",
+        "code": "01 from random import randint\n02 target = randint(1, 100)\n03 chance = 1\n04 print(\"猜一個1到100的整數，你將有3機會。\")\n05 \n06     guess = int(input(\"請輸入一個整數: \"))\n07     if guess > target:\n08         print(\"數字太大了，猜低一點\")\n09     elif guess < target:\n10         print(\"數字太小了，猜高一點\")\n11     else:\n12         print(\"猜對了!\")\n13 \n14 ",
+        "input_field": "Enter your code here",
+        "max_lines": 8,
+        "answer": "05 while chance <= 3:\n13 \n14 chance += 1", 
+        "options": [],
+        "keywords": ["Python", "猜數字遊戲", "隨機數", "控制流"],
+        "explanation": "1. 程式使用 `randint(1, 100)` 產生隨機目標數字。\n2. 使用 `while` 迴圈控制猜測次數，最多3次。\n3. 比較 `guess` 和 `target` 的大小，提供提示（大於或小於）。\n4. 如果猜對，程式立即停止；否則，迴圈繼續直到次數耗盡。\n5. 使用 `if chance > 3` 判斷所有機會用完後輸出正確答案。\n\n範例正確答案：\n```python\nfrom random import randint\n\ntarget = randint(1, 100)\nchance = 1\nprint(\"猜一個1到100的整數，你將有3機會。\")\n\nwhile chance <= 3:\n    guess = int(input(\"請輸入一個整數: \"))\n    if guess > target:\n        print(\"數字太大了，猜低一點\")\n    elif guess < target:\n        print(\"數字太小了，猜高一點\")\n    else:\n        print(\"猜對了!\")\n        break\n    chance += 1\n\nif chance > 3:\n    print(f\"很遺憾，答案是: {target}\")\n```"
+    }
+]
