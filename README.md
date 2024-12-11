@@ -37,18 +37,26 @@ Built with Streamlit, this app offers a clean, user-friendly interface to practi
 │   └── customer_quiz.py      # 🤝 Custom quiz configurations
 ├── data/                     # 📊 Quiz data
 │   ├── json/                 # 🗂️ JSON quiz files
-│   │   ├── python_tabime_20.json     # Python quizzes
-│   │   ├── aws_aif_c01_eng_87.json  # AWS quizzes (English)
-│   │   ├── aws_aif_c01_sc_43.json   # AWS quizzes (Simplified Chinese)
-│   │   ├── python_tabime_all_31.json # Combined Python question sets
+│   │   ├── ai_data_applications_all_226.json   # AI Data Applications questions
+│   │   ├── aws_aif_c01_eng_87.json            # AWS AIF-C01 English questions
+│   │   ├── aws_aif_c01_sc_43.json             # AWS AIF-C01 Simplified Chinese (43)
+│   │   ├── aws_aif_c01_sc_65.json             # AWS AIF-C01 Simplified Chinese (65)
+│   │   ├── aws_aif_c01_all_195.json           # Combined AWS AIF-C01 questions
+│   │   ├── python_tabime_11.json              # Python Tabime (11 questions)
+│   │   ├── python_tabime_20.json              # Python Tabime (20 questions)
+│   │   ├── python_tabime_all_31.json          # Combined Python Tabime questions
 │   └── pdf/                  # 📄 PDF reference materials
-│       ├── AIF_C01_part1_英87題.pdf # AWS AIF-C01 English questions
-│       ├── Python_part2_20題.pdf   # Python practice questions
+│       ├── AIF_C01_part1_英87題.pdf           # AWS AIF-C01 Part 1 (English)
+│       ├── AIF_C01_part2_簡中43題.pdf         # AWS AIF-C01 Part 2 (Simplified Chinese)
+│       ├── AIF_C01_part3_簡中65題.pdf         # AWS AIF-C01 Part 3 (Simplified Chinese)
+│       ├── python_part1_11題.pdf             # Python Part 1 (11 questions)
+│       ├── python_part2_20題.pdf             # Python Part 2 (20 questions)
 ├── .venv/                    # ⚙️ Virtual environment
 ├── requirements.txt          # 📜 Python package dependencies
 ├── pyproject.toml            # 🛠️ Poetry configuration file
 ├── README.md                 # 📘 Project documentation
 └── banner.png                # 🎨 App banner for branding
+
 
 ```
 
