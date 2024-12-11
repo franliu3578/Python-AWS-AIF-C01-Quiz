@@ -106,8 +106,10 @@ streamlit run app.py
 
 ## ⚠️ Disclaimer
 - This app is for educational purposes only and should not be used for commercial distribution or sharing beyond personal use. Content referenced from TibaMe or AWS materials remains the property of its rightful owner.
-
+- 本專案的下載和使用必須經過授權許可。請聯絡 劉晏瑜 <franliu3578@gmail.com> 獲取授權。
 ---
 
 
 - 💡 Ready to learn and grow? Dive into the app and supercharge your Python and AWS skills today! 🚀✨
+
+
