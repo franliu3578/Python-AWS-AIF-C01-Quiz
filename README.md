@@ -111,4 +111,3 @@ streamlit run app.py
 
 
 - 💡 Ready to learn and grow? Dive into the app and supercharge your Python and AWS skills today! 🚀✨
-
