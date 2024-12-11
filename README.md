@@ -30,7 +30,7 @@ Built with Streamlit, this app offers a clean, user-friendly interface to practi
 
 ```plaintext
 
-20241117_Python_AWS_AIF_C01_Quiz/
+20241113_Python_AWS_AIF_C01_Quiz/
 ├── app.py                    # 🌐 Main Streamlit application
 ├── code/                     # 🧩 Core logic modules
 │   ├── quiz_logic.py         # 🚦 Main quiz engine
